@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2.5em;
+    }
+
+    .message {
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    .surprise {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .balloons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #555;
+    }
+
+    .red { background: red; }
+    .blue { background: blue; }
+    .green { background: green; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, <span id="friend-name">Friend</span>!</h1>
+    <p class="message">Wishing you all the joy and happiness in the world today and always!</p>
+    <button onclick="showSurprise()">Click for a Surprise!</button>
+    <div class="surprise" id="surprise">
+      <p>You are amazing!</p>
+      <div class="balloons">
+        <div class="balloon red"></div>
+        <div class="balloon blue"></div>
+        <div class="balloon green"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSurprise() {
+      const surprise = document.getElementById('surprise');
+      surprise.style.display = 'block';
+      document.querySelector('button').style.display = 'none';
+    }
+
+    // Optional: Ask for friend's name
+    const name = prompt("Enter your friend's name:");
+    if (name) {
+      document.getElementById('friend-name').textContent = name;
+    }
+  </script>
+</body>
+</html>
